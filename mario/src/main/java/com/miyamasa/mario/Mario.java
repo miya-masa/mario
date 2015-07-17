@@ -1,47 +1,42 @@
 package com.miyamasa.mario;
 
-public interface Mario {
+import com.miyamasa.mario.state.MarioState;
 
-	/**
-	 * ワンアップキノコを食べた時
-	 *
-	 * @return 次のマリオ
-	 */
-	Mario getOneUpMashroom();
+public class Mario {
+	private MarioState state;
 
-	/**
-	 * 花を取得する
-	 *
-	 * @return 次のマリオ
-	 */
-	Mario getFlower();
+	public Mario(MarioState initialState) {
+		this.state = initialState;
+	}
 
-	/**
-	 * キノコを取得
-	 *
-	 * @return 次のマリオ
-	 */
-	Mario getMushroom();
+	public Mario getOneUpMashroom() {
+		this.state = state.getOneUpMashroom();
+		return this;
+	}
 
-	/**
-	 * スターを取得
-	 *
-	 * @return 次のマリオ
-	 */
-	Mario getStar();
+	public Mario getFlower() {
+		this.state = state.getFlower();
+		return this;
+	}
 
-	/**
-	 * 敵に当たる
-	 *
-	 * @return 敵
-	 */
-	Mario hitEnemy();
+	public Mario getMushroom() {
+		this.state = state.getMushroom();
+		return this;
+	}
 
-	/**
-	 * 穴に落ちる。
-	 *
-	 * @return 次のマリオ
-	 */
-	Mario fallHole();
+	public Mario getStar() {
+		this.state = state.getStar();
+		return this;
+	}
+
+	public Mario hitEnemy() {
+		this.state = state.hitEnemy();
+		return this;
+	}
+
+	public Mario fallHole() {
+		this.state = state.fallHole();
+		return this;
+	}
 
 }
