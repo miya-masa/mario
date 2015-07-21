@@ -4,13 +4,17 @@ import com.miyamasa.mario.state.MarioState;
 
 public class Mario {
 	private MarioState state;
+	// 自分が属するマリオホルダー(残機管理)
+	private final MarioHolder marioHolder;
 
-	public Mario(MarioState initialState) {
+	public Mario(MarioState initialState, MarioHolder marioHolder) {
 		this.state = initialState;
+		this.marioHolder = marioHolder;
 	}
 
 	public Mario getOneUpMashroom() {
 		this.state = state.getOneUpMashroom();
+		marioHolder.addMario();
 		return this;
 	}
 
@@ -39,4 +43,7 @@ public class Mario {
 		return this;
 	}
 
+	public Class<? extends MarioState> getStateClass() {
+		return this.state.getClass();
+	}
 }

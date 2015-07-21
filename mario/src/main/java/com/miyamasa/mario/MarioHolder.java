@@ -4,7 +4,8 @@ import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.stream.Stream;
 
-import com.miyamasa.mario.state.impl.MiniMario;
+import com.miyamasa.mario.exception.GameOverException;
+import com.miyamasa.mario.state.impl.Mini;
 
 public class MarioHolder {
 
@@ -12,15 +13,20 @@ public class MarioHolder {
 
 	public MarioHolder(int initialLife) {
 		marioList = new ArrayBlockingQueue<>(initialLife);
-		Stream.iterate(0, i -> i + 1).limit(initialLife).forEach(i -> marioList.add(new Mario(new MiniMario())));
+		Stream.iterate(0, i -> i + 1).limit(initialLife)
+				.forEach(i -> this.addMario());
 	}
 
 	public Mario popMario() {
-		return marioList.poll();
+		Mario mario = marioList.poll();
+		if (mario == null) {
+			throw new GameOverException();
+		}
+		return mario;
 	}
 
 	public void addMario() {
-		marioList.add(new Mario(new MiniMario()));
+		marioList.add(new Mario(new Mini(), this));
 	}
 
 }

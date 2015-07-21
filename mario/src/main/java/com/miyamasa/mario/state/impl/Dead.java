@@ -3,7 +3,7 @@ package com.miyamasa.mario.state.impl;
 import com.miyamasa.mario.exception.DeadException;
 import com.miyamasa.mario.state.MarioState;
 
-public class DeadMario implements MarioState {
+public class Dead implements MarioState {
 
 	public MarioState getFlower() {
 		throw new DeadException();
@@ -27,10 +27,6 @@ public class DeadMario implements MarioState {
 
 	public MarioState getOneUpMashroom() {
 		throw new DeadException();
-	}
-
-	public MarioState currentMario() {
-		return this;
 	}
 
 }
