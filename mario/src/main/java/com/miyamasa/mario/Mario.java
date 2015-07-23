@@ -1,20 +1,25 @@
 package com.miyamasa.mario;
 
+import lombok.NonNull;
+import lombok.Setter;
+
 import com.miyamasa.mario.state.MarioState;
 
+@Setter
 public class Mario {
-	private MarioState state;
-	// 自分が属するマリオホルダー(残機管理)
-	private final MarioHolder marioHolder;
 
-	public Mario(MarioState initialState, MarioHolder marioHolder) {
+	@NonNull
+	private MarioState state;
+	@NonNull
+	private Stage currentStage;
+
+	public Mario(MarioState initialState, Stage currentStage) {
 		this.state = initialState;
-		this.marioHolder = marioHolder;
+		this.currentStage = currentStage;
 	}
 
 	public Mario getOneUpMashroom() {
 		this.state = state.getOneUpMashroom();
-		marioHolder.addMario();
 		return this;
 	}
 
@@ -43,7 +48,7 @@ public class Mario {
 		return this;
 	}
 
-	public Class<? extends MarioState> getStateClass() {
-		return this.state.getClass();
+	public String getStateName() {
+		return this.state.getClass().getSimpleName();
 	}
 }

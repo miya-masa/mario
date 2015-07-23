@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.function.Function;
 
+import com.miyamasa.mario.exception.DeadException;
 import com.miyamasa.mario.state.MarioState;
 
 public class Star implements MarioState {
@@ -33,7 +34,7 @@ public class Star implements MarioState {
 	}
 
 	public MarioState fallHole() {
-		return new Dead();
+		throw new DeadException();
 	}
 
 	public MarioState getOneUpMashroom() {
