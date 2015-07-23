@@ -1,4 +1,5 @@
-package com.miyamasa.mario;
+package com.miyamasa.mario.stage.type;
+
 
 public class Stage {
 

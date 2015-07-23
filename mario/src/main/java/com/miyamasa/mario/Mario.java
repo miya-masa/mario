@@ -3,14 +3,15 @@ package com.miyamasa.mario;
 import lombok.NonNull;
 import lombok.Setter;
 
+import com.miyamasa.mario.stage.type.Stage;
 import com.miyamasa.mario.state.MarioState;
 
-@Setter
 public class Mario {
 
 	@NonNull
 	private MarioState state;
 	@NonNull
+	@Setter
 	private Stage currentStage;
 
 	public Mario(MarioState initialState, Stage currentStage) {

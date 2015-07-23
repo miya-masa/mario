@@ -5,6 +5,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.stream.IntStream;
 
 import com.miyamasa.mario.exception.GameOverException;
+import com.miyamasa.mario.stage.type.Stage;
 import com.miyamasa.mario.state.impl.Mini;
 
 public class MarioHolder {
