@@ -2,8 +2,8 @@ package com.miyamasa.mario;
 
 import java.util.stream.IntStream;
 
-import com.miyamasa.mario.stage.Ground;
-import com.miyamasa.mario.stage.type.Stage;
+import com.miyamasa.mario.stage.Stage;
+import com.miyamasa.mario.stage.type.Ground;
 
 public class Game {
 
