@@ -7,28 +7,28 @@ public interface MarioState {
 	 *
 	 * @return 次のマリオ
 	 */
-	MarioState getOneUpMashroom();
+	MarioState eatOneUpMashroom();
 
 	/**
 	 * 花を取得する
 	 *
 	 * @return 次のマリオ
 	 */
-	MarioState getFlower();
+	MarioState eatFlower();
 
 	/**
 	 * キノコを取得
 	 *
 	 * @return 次のマリオ
 	 */
-	MarioState getMushroom();
+	MarioState eatMushroom();
 
 	/**
 	 * スターを取得
 	 *
 	 * @return 次のマリオ
 	 */
-	MarioState getStar();
+	MarioState eatStar();
 
 	/**
 	 * 敵に当たる

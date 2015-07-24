@@ -1,20 +1,24 @@
 package com.miyamasa.mario;
 
 import java.util.Queue;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.stream.Stream;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.stream.IntStream;
 
 import com.miyamasa.mario.exception.GameOverException;
+import com.miyamasa.mario.stage.Stage;
 import com.miyamasa.mario.state.impl.Mini;
 
 public class MarioHolder {
 
 	private final Queue<Mario> marioList;
 
-	public MarioHolder(int initialLife) {
-		marioList = new ArrayBlockingQueue<>(initialLife);
-		Stream.iterate(0, i -> i + 1).limit(initialLife)
-				.forEach(i -> this.addMario());
+	public MarioHolder(int initialLife, Stage currentStage) {
+		marioList = new LinkedBlockingQueue<Mario>();
+		IntStream
+				.iterate(0, i -> i + 1)
+				.limit(initialLife)
+				.forEach(
+						e -> this.addMario(new Mario(new Mini(), currentStage)));
 	}
 
 	public Mario popMario() {
@@ -25,8 +29,8 @@ public class MarioHolder {
 		return mario;
 	}
 
-	public void addMario() {
-		marioList.add(new Mario(new Mini(), this));
+	public void addMario(Mario mario) {
+		marioList.add(mario);
 	}
 
 }

@@ -4,23 +4,23 @@ import com.miyamasa.mario.state.MarioState;
 
 public abstract class Alive implements MarioState {
 
-	public MarioState getFlower() {
+	public MarioState eatFlower() {
 		return new Fire();
 	}
 
-	public MarioState getMushroom() {
+	public MarioState eatMushroom() {
 		return new Super();
 	}
 
-	public MarioState getStar() {
+	public MarioState eatStar() {
 		return new Star(this);
 	}
 
 	public MarioState fallHole() {
-		return new Dead();
+		throw new DeadException();
 	}
 
-	public MarioState getOneUpMashroom() {
+	public MarioState eatOneUpMashroom() {
 		return this;
 	}
 

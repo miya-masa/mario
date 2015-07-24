@@ -5,15 +5,15 @@ import com.miyamasa.mario.state.MarioState;
 
 public class Dead implements MarioState {
 
-	public MarioState getFlower() {
+	public MarioState eatFlower() {
 		throw new DeadException();
 	}
 
-	public MarioState getMushroom() {
+	public MarioState eatMushroom() {
 		throw new DeadException();
 	}
 
-	public MarioState getStar() {
+	public MarioState eatStar() {
 		throw new DeadException();
 	}
 
@@ -25,7 +25,7 @@ public class Dead implements MarioState {
 		throw new DeadException();
 	}
 
-	public MarioState getOneUpMashroom() {
+	public MarioState eatOneUpMashroom() {
 		throw new DeadException();
 	}
 

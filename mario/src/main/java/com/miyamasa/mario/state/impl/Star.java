@@ -16,16 +16,16 @@ public class Star implements MarioState {
 		this.previousMario = previousMario;
 	}
 
-	public MarioState getFlower() {
-		return behave(e -> e.getFlower());
+	public MarioState eatFlower() {
+		return behave(e -> e.eatFlower());
 	}
 
-	public MarioState getMushroom() {
-		return behave(e -> e.getMushroom());
+	public MarioState eatMushroom() {
+		return behave(e -> e.eatMushroom());
 	}
 
-	public MarioState getStar() {
-		return behave(e -> e.getStar());
+	public MarioState eatStar() {
+		return behave(e -> e.eatStar());
 	}
 
 	public MarioState hitEnemy() {
@@ -33,11 +33,11 @@ public class Star implements MarioState {
 	}
 
 	public MarioState fallHole() {
-		return new Dead();
+		throw new DeadException();
 	}
 
-	public MarioState getOneUpMashroom() {
-		return behave(e -> e.getOneUpMashroom());
+	public MarioState eatOneUpMashroom() {
+		return behave(e -> e.eatOneUpMashroom());
 	}
 
 	private MarioState behave(Function<MarioState, MarioState> consumer) {
