@@ -1,5 +1,6 @@
 package com.miyamasa.mario.state.impl;
 
+import com.miyamasa.mario.exception.DeadException;
 import com.miyamasa.mario.state.MarioState;
 
 public abstract class Alive implements MarioState {

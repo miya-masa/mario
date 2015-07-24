@@ -4,12 +4,12 @@ import lombok.NonNull;
 import lombok.Setter;
 
 import com.miyamasa.mario.stage.Stage;
+import com.miyamasa.mario.state.MarioState;
 
 public class Mario {
 
 	@NonNull
 	private MarioState state;
-
 	@NonNull
 	@Setter
 	private Stage currentStage;
