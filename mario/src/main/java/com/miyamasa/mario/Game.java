@@ -21,10 +21,8 @@ public class Game {
 		MarioHolder holder = new MarioHolder(INITIAL_LIFE, stage);
 
 		IntStream.iterate(0, i -> i + 1).limit(5).forEach(e -> {
-
 			Mario mario = holder.popMario();
 			mario.fallHole();
-
 		});
 
 	}

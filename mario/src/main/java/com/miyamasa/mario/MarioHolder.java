@@ -13,12 +13,13 @@ public class MarioHolder {
 	private final Queue<Mario> marioList;
 
 	public MarioHolder(int initialLife, Stage currentStage) {
+		this();
+		IntStream.iterate(0, i -> i + 1).limit(initialLife)
+				.forEach(e -> this.addMario(new Mario(new Mini(), currentStage)));
+	}
+
+	public MarioHolder() {
 		marioList = new LinkedBlockingQueue<Mario>();
-		IntStream
-				.iterate(0, i -> i + 1)
-				.limit(initialLife)
-				.forEach(
-						e -> this.addMario(new Mario(new Mini(), currentStage)));
 	}
 
 	public Mario popMario() {

@@ -1,6 +1,6 @@
 package com.miyamasa.mario.stage.type;
 
-public class Ground implements StageType {
+public class Wham implements StageType {
 
 	@Override
 	public boolean isJumpable() {
